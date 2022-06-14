@@ -1,7 +1,11 @@
 package com.sift.sift_flutter;
 
 import androidx.annotation.NonNull;
+import android.util.Log;
+import android.app.Activity;
 
+import io.flutter.embedding.engine.plugins.activity.ActivityAware;
+import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
@@ -9,13 +13,15 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import siftscience.android.Sift;
 
+
 /** SiftFlutterPlugin */
-public class SiftFlutterPlugin implements FlutterPlugin, MethodCallHandler, ActivityAware{
+public class SiftFlutterPlugin implements FlutterPlugin, MethodCallHandler, ActivityAware {
   /// The MethodChannel that will the communication between Flutter and native Android
   ///
   /// This local reference serves to register the plugin with the Flutter Engine and unregister it
   /// when the Flutter Engine is detached from the Activity
   private MethodChannel channel;
+  private Activity activity;
 
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
@@ -24,7 +30,7 @@ public class SiftFlutterPlugin implements FlutterPlugin, MethodCallHandler, Acti
   }
 
   public void openSift(String[] siftData) {
-    Sift.open(this, new Sift.Config.Builder()
+    Sift.open(activity, new Sift.Config.Builder()
             .withAccountId(siftData[0])
             .withBeaconKey(siftData[1])
             .withDisallowLocationCollection(true)
@@ -57,6 +63,28 @@ public class SiftFlutterPlugin implements FlutterPlugin, MethodCallHandler, Acti
   } else {
       result.notImplemented();
     }
+  }
+
+  @Override
+  public void onAttachedToActivity(ActivityPluginBinding activityPluginBinding) {
+    activity = activityPluginBinding.getActivity();
+    // TODO: your plugin is now attached to an Activity
+  }
+
+  @Override
+  public void onDetachedFromActivityForConfigChanges() {
+    // TODO: the Activity your plugin was attached to was destroyed to change configuration.
+    // This call will be followed by onReattachedToActivityForConfigChanges().
+  }
+
+  @Override
+  public void onReattachedToActivityForConfigChanges(ActivityPluginBinding activityPluginBinding) {
+    // TODO: your plugin is now attached to a new Activity after a configuration change.
+  }
+
+  @Override
+  public void onDetachedFromActivity() {
+    // TODO: your plugin is no longer associated with an Activity. Clean up references.
   }
 
   @Override
