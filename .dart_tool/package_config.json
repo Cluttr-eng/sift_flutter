@@ -38,12 +38,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "cupertino_icons",
-      "rootUri": "file:///Users/tunde/Documents/Projects/Shared/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.5",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "fake_async",
       "rootUri": "file:///Users/tunde/Documents/Projects/Shared/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0",
       "packageUri": "lib/",
@@ -90,12 +84,6 @@
       "rootUri": "file:///Users/tunde/Documents/Projects/Shared/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
-    },
-    {
-      "name": "sift_flutter",
-      "rootUri": "../../",
-      "packageUri": "lib/",
-      "languageVersion": "2.15"
     },
     {
       "name": "sky_engine",
@@ -152,13 +140,13 @@
       "languageVersion": "2.14"
     },
     {
-      "name": "sift_flutter_example",
+      "name": "sift_flutter",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.15"
     }
   ],
-  "generated": "2022-06-14T01:10:09.226770Z",
+  "generated": "2022-06-14T01:10:06.364504Z",
   "generator": "pub",
   "generatorVersion": "2.15.0"
 }

@@ -22,7 +22,9 @@ class SiftFlutter {
   }
 
   Future<void> setUserId(String userId) async {
-    await _channel.invokeMethod(
+    print('setUserId() $userId');
+
+    final String? result = await _channel.invokeMethod(
       'setUserID',
       [
         siftAccountId,
@@ -30,6 +32,8 @@ class SiftFlutter {
         userId,
       ],
     );
+
+    print('setUserId() result $result');
   }
 
   static Future<String?> get platformVersion async {
