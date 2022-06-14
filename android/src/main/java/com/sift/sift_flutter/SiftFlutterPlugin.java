@@ -42,7 +42,7 @@ public class SiftFlutterPlugin implements FlutterPlugin, MethodCallHandler, Acti
   public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
     if (call.method.equals("getPlatformVersion")) {
       result.success("Android " + android.os.Build.VERSION.RELEASE);
-    } if else (call.method.equals("setUserID")) {
+    } else if (call.method.equals("setUserID")) {
       String siftDataStr = call.arguments.toString();
       Log.d("sift data string", siftDataStr);
       siftDataStr = siftDataStr.replace("[", "");
