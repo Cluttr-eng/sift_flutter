@@ -34,6 +34,6 @@ android {
     }
 
     dependencies {
-        compile 'com.siftscience:sift-android:VERSION'
+        compile 'com.siftscience:sift-android:1.0.0'
     }
 }
